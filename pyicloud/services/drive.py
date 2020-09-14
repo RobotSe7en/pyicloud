@@ -113,8 +113,8 @@ class DriveService(object):
                 "is_executable": False,
                 "is_hidden": False,
             },
-            "mtime": int(time.time()),
-            "btime": int(time.time()),
+            "mtime": int(os.path.getmtime(file_object.name) * 1000), #int(time.time()),
+            "btime": int(os.path.getctime(file_object.name) * 1000), #int(time.time()),
         }
 
         # Add the receipt if we have one. Will be absent for 0-sized files
